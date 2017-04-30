@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Exponential family distribution</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+</head>
+
+<body>
+<h3>Nonparametric Methods</h3>
+Usually in ML we assume that data is coming from some distribution, and thus we try to find the parameters of the distribution. However an important limitation of this approach is that the chosen density might be a poor model of the distribution that generates the data (like try to model a data generated from multimodal distribution by a single gaussian), which can result in poor predictive performance.<br>
+
+Moreover, we intuitively feel that probability density at a particular location, would depend on the relative number of the datapoints present in that neighbourhood. Some of the ways (methods) we could then estimate the probability would be:
+<h4>Histogram approach</h4>
+Simply divide the space in bins and estimate the probability of the bins as number of points falling in that bin, it is illustrated in example below (Taken from Bishop, Fig 2.24):<br><br>
+<img src='nonParamMetghods/windowMethod.png' alt='windowMethod.png' width=800px /><br><br>
+Apart from the choice of the $\Delta$, another issue with this method is location of center of $\Delta$ can also make the function discontinuous.
+<h4>Kernel method</h4>
+We can extend the histogram method. Suppose K out of N points are present in volume V. Then density estimat is given as:<br><br>
+p(x) = $\frac{K}{NV}$<br><br>
+Definng the <i>Parzen window</i> kernel function k(u), (aka which woudl be 1 inside |u$_i$|/2 from origin), we get:<br>
+<img src='nonParamMetghods/KPoints.png' alt='KPoints.png' width=150px /><br><br>
+This gives probability estimate as:<br>
+<img src='nonParamMetghods/ProbEstimate.png' alt='ProbEstimate.png' width=250px /><br><br>
+The above equation can be re-interpreted as sum of N cubes centered over each data points. Please note the choice of K (called kernel) as a cube would make it a window method.<br><br>
+To avoid the presence of Artificial discontinuties, we can choose a Gaussain kernel (or any smoorther kernel). Choosing gaussian Kernel would give the probability distribution as:<br>
+<img src='nonParamMetghods/GaussianKernel.png' alt='GaussianKernel.png' width=450px /><br><br>
+Thsi would give an estimate as (again taken from Bishop, Fig 2.25)<br>
+<img src='nonParamMetghods/KernelMethod.png' alt='KernelMethod.png' width=800px /><br><br>
+
+<h4>Nearest-neighbour methods</h4>
+Needs not much of explanation.
+</body>
+</html>
+
+
+
+
+

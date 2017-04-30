@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Gaussian distribution and it's properties.</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+</head>
+
+<body>
+<h3>Normal/Gaussian distribution</h3>
+Univariate Gaussian distribution:<br><br>
+<img src='GaussianDistrib/univGaussian.png' alt='univGaussian.png' width=400px /><br><br>
+
+Multivariate (D-dimensional vector x) have:<br><br>
+<img src='GaussianDistrib/multivGaussian.png' alt='multivGaussian.png' width=550px /><br>
+<br>
+<h4>Some more properties/observation of Gaussian:</h4>
+
+<ul>
+<li>The functional dependence of the Gaussian on x is through the quadratic form:<br>
+$\Delta^2$ = (x-$\mu$)$^T$ $\Sigma^{-1}$ (x-$\mu$).
+</li>
+
+<li>Matrix $\Sigma$ can be considered to be symmetric as anti-symmetric part of it won't constitute anything to $\Delta$. (It's value would be zero).</li>
+
+<li>We can write $\Sigma$ in terms of it's eigenvalues ($\lambda_i$) and orthonormal eigenvectors (u$_i$) as:<br>
+$\Sigma$ = $\Sigma_{i=1}^D$ $\lambda_i$u$_i$u$_i^T$, and <br>
+$\Sigma^{-1}$ = $\Sigma_{i=1}^D$ $\frac{1}{\lambda_i}$u$_i$u$_i^T$<br></li>
+
+<li>We can shift and rotate x to get: y$_i$ = u$_i^T$ (x - $\mu$)<br>
+Then we have: $\Delta^2$ = $\Sigma_{i=1}^D$ $\frac{y_i^2}{\lambda_i}$<br>
+Or: y = U (x - $\mu$)</li>
+
+<li>This would give (Bishop Fig 2.7):<br><br>
+<img src='GaussianDistrib/ConstProbGaussian.png' alt='ConstProbGaussian.png' width=700px  /><br>
+Here if we would plot the same curve in new coordinate system of y, we should get a circle (well, if we also account for $\lambda$s) with center at origin.
+</li>
+
+<li>Also by putting the value of $\Sigma$ and $\Delta$, in the multivariate equation of Gaussian, and rearranging stuff, we would get the equation of Gaussian in new co-ordinate system as:<br>
+<img src='GaussianDistrib/NewCordinateGaussian.png' alt='NewCordinateGaussian.png' width=500px /><br><br>
+which is, as we can see product if D independent univariate Gaussian distribution.
+</ul>
+
+<h4>Marginal and conditional distributions of a partitioned Gaussian</h4>
+taken from Bishop, eq 2.94 to 2.98 <br>
+<img src='GaussianDistrib/partitionedGaussian.png' alt='partitionedGaussian.png' width=700px /><br><br>
+
+<h4>Marginal and conditional Gaussian</h4>
+taken from Bishop, eq 2.113 to 2.117 <br>
+<img src='GaussianDistrib/MaCGaussian.png' alt='MaCGaussian.png' width=700px /><br><br>
+
+<h4>MLE for multivariate Gaussian</h4>
+Given data point x$_1$ to x$_n$, we can get:<br>
+$\mu_{ML}$ = $\frac{1}{N}\Sigma_{n=1}^N$ x$_n$<br><br>
+$\Sigma_{ML}$ = $\frac{1}{N}\Sigma_{n=1}^N$ (x$_n$ - $\mu_{ML}$)(x$_n$ - $\mu_{ML}$)$^T$<br><br>
+
+For variance result, instead of averaging over N we can avergae over N-1 to get an unbiased variance estimator.
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

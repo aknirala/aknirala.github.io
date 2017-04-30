@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Exponential family distribution</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+</head>
+
+<body>
+<h3>Exponential Family</h3>
+Generic equation of exponential family of equation, parametrized by $\mu$ is:<br>
+<img src='ExponentialFamily/expFamily.png' alt='expFamily.png' width=300px /><br><br>
+It's conjugate prior: i.e., a prior p($\eta$), so that distribution has the same functional form as the prior is:
+<img src='ExponentialFamily/ConjPrior.png' alt='ConjPrior.png' width=300px /><br><br>
+This would give posterior distribution as:<br>
+<img src='ExponentialFamily/Posterior.png' alt='Posterior.png' width=400px /><br><br>
+<h4>Bernoulli distribution</h4>
+It is: p(x|$\mu$) = Bern(x|$\mu$) = $\mu^x$ (1 - $\mu$)$^{1-x}$<br><br>
+taking log and exponent, and rearranging, we would get:<br>
+p(x|$\mu$) = (1 - $\mu$) exp{ln ($\frac{\mu}{1 - \mu}$) x}<br><br>
+This gives $\eta$ = ln $\frac{\mu}{1 - \mu}$<br><br>
+Which in turn gives: $\mu$ = $\frac{1}{1 + exp(-\eta)}$ which is = $\sigma$ ($\eta$), also known as logistic sigmoid.<br>
+Now using $\sigma$ (-$\eta$) = 1 - $\sigma$ ($\eta$), we can write the Bernoulli distribution as:<br><br>
+
+<b>p(x|$\eta$) = $\sigma$ (-$\eta$) exp($\eta$x)</b><br>
+Comparing it with the generic form of exponential form we get:<br>
+<table border = 1>
+<tr><th>Exp' dist' param</th> <th>Bernoulli</th></tr>
+<tr><td>u(x)</td>       <td>x</td></tr>
+<tr><td>h(x)</td>       <td>1</td></tr>
+<tr><td>g($\eta$)</td>  <td>$\sigma$ (-$\eta$)</td></tr>
+</table>
+
+<h4>Multinomial distribution</h4>
+<img src='ExponentialFamily/multinomial.png' alt='multinomial.png' width=300px /><br><br>
+Puting $\eta_i$ for ln $\mu_i$, we would get (in vector form):<br>
+p(x|$\eta$) = exp($\eta^T$x), so the parameters wrt exponential distribution is:
+<table border = 1>
+<tr><th>Exp' dist' param</th> <th>Multinomial</th></tr>
+<tr><td>u(x)</td>       <td>x</td></tr>
+<tr><td>h(x)</td>       <td>1</td></tr>
+<tr><td>g($\eta$)</td>  <td>1</td></tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

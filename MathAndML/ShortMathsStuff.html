@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Maths Concepts (mostly for ML)</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+</head>
+
+<body>
+These are some of the concepts in maths, which I should know but sadly I keep forgeting them so here they are:<br>
+
+<table border = 1>
+
+<tr><td colspan = 2><h3>Integration</h3></td></tr>
+
+<tr><td>1. </td><td>Integratio by parts: [<a href='https://en.wikipedia.org/wiki/Integration_by_parts'>Wiki</a>]<br>
+<img src='img/IntegrationByParts.svg' alt=''/></td></tr>
+
+
+
+
+<tr><td colspan = 2><h3>Matrices</h3></td></tr>
+<tr><td>1. </td>
+<td>
+Useful identity involving the matrix inverse (from Bishop eq: C.5)<br>
+(P$^{-1}$ + B$^T$R$^{-1}$B)$^{-1}$B$^T$R$^{-1}$ = PB$^T$(BPB$^T$ + R)$^{-1}$<br>
+<b>Proof</b><br>
+Consider above LHS : RHS<br>
+<ul>
+<li>Multiply both side by R to the right. For LHS take R as R$^{-1^{-1}}$, and then use formula (AB)$^{-1}$ = B$^{-1}$A$^{-1}$. This would give:<br>
+(P$^{-1}$ + B$^T$R$^{-1}$B)$^{-1}$B$^T$ = PB$^T$(R$^{-1}$BPB$^T$ + I)$^{-1}$</li>
+<li>Now do the similar thing by multiplying P$^-1$ to the left, to get:<br>
+(I + B$^T$R$^{-1}$BP)$^{-1}$B$^T$ = B$^T$(R$^{-1}$BPB$^T$ + I)$^{-1}$</li>
+<li>We have B$^T$ on both side, we can write that as B$^{T^{-1^{-1}}}$, and then again apply (AB)$^{-1}$ = B$^{-1}$A$^{-1}$ to get:<br>
+(B$^{T^{-1}}$ + R$^{-1}$BP)$^{-1}$ = (R$^{-1}$BP + B$^{T^{-1}}$)$^{-1}$</li>
+<li>Thus, LHS = RHS</li>
+</ul>
+<hr>
+Special case (Bishop C.6): (I + AB)$^{-1}$A = A (I + BA)$^{-1}$
+</td></tr>
+
+<tr><td>2.</td>
+<td>Woodbury identity (these are usefula s depending on dimension it is cheaper to evaluate one side than the other) (Bishop C.7): <br>
+(A + BD$^{-1}$C)^${-1}$ = A$^{-1}$ - A$^{-1}$B(D = CA$^{-1}$B)$^{-1}$CA$^{-1}$
+</td></tr>
+
+<tr><td>3.</td>
+<td>Cyclic property of trace operator for matrices (Bishop C.9)<br>
+Tr(ABC) = Tr(CAB) = Tr(BCA)
+</td></tr>
+
+</table>
+</body>
+</html>
