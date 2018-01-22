@@ -14,8 +14,7 @@ Currently in first semester of PhD from Iowa State University, Computer Science 
 </td>
 </table>
 
-
-
+ 
 <hr>
 <h3>Current trivia</h3>
 <ul>
@@ -23,40 +22,27 @@ Currently in first semester of PhD from Iowa State University, Computer Science 
 <table>
 <tr>
 <td><img src='images\incomplete.jpg' width = 150px></img></td>
-<td>Didn't decided on the thesis yet (something related to AI: Robotics, NLP, Knowledge Representation or ML). Subjects taken:
+<td>Didn't decided on the thesis yet (something related to AI: Robotics, NLP, Knowledge Representation or ML: writing research proposal as of now). Subjects taken:
+Current (Spring 2018):
 <ul>
-<li>CS 511: Compulsory (and always fascinating) course: Design and Analysis of Algorithms, being taught by <a href='http://web.cs.iastate.edu/~fernande/'>Prof David Fernández-Baca</a></li>
-<li>CS 577: <a href='http://web.cs.iastate.edu/~cs577/'>Problem Solving Techniques for Applied Computer Science</a>, being taught by <a href='http://web.cs.iastate.edu/~jia/'>Prof Yan-Bin Jia (贾燕斌)</a></li>
-<li>CS 511: Artificial Intelligence, being taught by <a href='http://web.cs.iastate.edu/~jtian/'>Prof Jin Tian</a></li>
+<li>CS 518: <a href='http://web.cs.iastate.edu/~cs518/'>Computational Geometry</a> being taught by <a href='http://web.cs.iastate.edu/~jia/'>Prof Yan-Bin Jia (贾燕斌)</a> </li>
+<li>CS 531: Theory of Computation: being taught by <a href='http://web.cs.iastate.edu/~slutzki/'>Prof Giora Slutzki</a></li>
+<li>CS 573: Machine Learning: being taught by <a href='http://web.cs.iastate.edu/~jtian/'>Prof Jin Tian</a></li>
+<li>CS 575: <a href='http://www.ece.iastate.edu/~alexs/classes/2018_Spring_575/'>Computational Perception<a> being taught by <a href='http://www.ece.iastate.edu/~alexs/'>Alexander Stoytchev</a></li>
+<li>TA for CS 228: </li>
+</ul>
+Fall 2017:
+<ul>
+<li>CS 577: <a href='http://web.cs.iastate.edu/~cs577/'>Problem Solving Techniques for Applied Computer Science</a>, taught by <a href='http://web.cs.iastate.edu/~jia/'>Prof Yan-Bin Jia (贾燕斌)</a></li>
+<li>CS 511: Compulsory (and always fascinating) course: Design and Analysis of Algorithms, taught by <a href='http://web.cs.iastate.edu/~fernande/'>Prof David Fernández-Baca</a></li>
+<li>CS 572: Artificial Intelligence, taught by <a href='http://web.cs.iastate.edu/~jtian/'>Prof Jin Tian</a></li>
+<li>CS 592: Taught by <a href='http://web.cs.iastate.edu/~batinov/'>Georgi I. Batinov</a></li>
 <li>TA for CS 227 <a href='http://web.cs.iastate.edu/~cs227/syllabus.html'>Introduction to Object Oriented Programming</a> (using Java) taken by <a href='http://web.cs.iastate.edu/~smkautz/'>Prof Steve Kautz</a> and <a href=''>Prof Guang Song</a></li>
 </ul>
 
 </td></tr>
 </table><br><br>
 </li>
-
-
-<li><b>Stock Market Prediction by web scraping:</b>
-<table>
-<tr>
-<td><img src='images\stock1.jpg' width = 150px></img></td>
-<td>
-CSE 572 Course Project (in team of 2)
-<ul>
-<li>Objective is to predict, if a piece of news is favorable to the stocks mentioned in the news or not.</li>
-<li>We are scraping news articles and historic price of stocks from various sources, and apply various techniques to predict the stock price (as part of the course project we would probably limit ourselves to some part of the first two-three):
-<ul>
-<li>Find out, micro factors for a stock like: expected quarterly results, some policy change to a specific stock sector etc., and decide/learn if it is favorable.</li>
-<li>Search for some cyclic pattern in a stock price and try to uncover the underlying cause in the companies underlying business.</li>
-<li>Look through some key indicators associated with stock and see if a stock looks favorable.</li>
-<li>Search for some macro factors like: 'Demonetization in India, US president outcome etc'.</li>
-<li>Do text to speech conversion for some reputed stock analysis site, and analyze that.</li>
-</ul>
-</ul>
-</td></tr>
-</table><br><br>
-</li>
-
 
 
 <li><b>Sentence classification based on semantics (not so actively):</b>
@@ -99,8 +85,9 @@ Idea is:
 <td><img src='images\MusicFeeling.jpg' width = 200px></img></td>
 <td>
 Music is an art, which may requires several lifetimes to learn. It's just some waves, some frequency of which whole world is composed of.
-<ul><li><a href='music\LevelNegative.html'>Level negative One</a>.
-</li>
+<ul>
+ <li><a href='music\LevelNegative.html'>Level negative One</a>.</li>
+ <li><a href='music\LevelZero.html'>Some tunes from true-piano-lessons</a>.</li>
 </ul>
 </td></tr>
 </table><br><br>
@@ -113,6 +100,18 @@ Music is an art, which may requires several lifetimes to learn. It's just some w
 <h3>Done/Maintaining</h3>
 
 <table border = 0>
+<tr><td><hr></td><td><hr></td></tr>
+
+<tr><td>2017 12 04</td>
+<td>Stock Market Prediction by web scraping. Crawled recommendation by CNBC, and applied a simple word2Vec model with stock movement around it. Achieved an impressive 30% annual return for past couple of years.<br>
+Code can't be shared cause of <i>efficient market hypothesis</i>, as I am exploiting the niche. The project was done as part of 572 course project, and has been improved a lot after that.<br>
+However, publicly available data as crawled from <a href='http://www.moneycontrol.com/news/business/stocks/'>CNBC</a> (stock recommendation: 2011 - Nov 2017) and <a href='https://nseindia.com/products/content/equities/equities/eq_security.htm'>NSE</a> (stock prices: 2010 - Nov 2017) are available for download:
+<ul>
+<li><a href='COMS572/CNBC_StockCrawl_Jan11_Nov17.pickle.tar.gz'>CNBC Stock recommendation.</a></li>
+<li><a href='COMS572/16 Company.tar.gz'>NSE Stock prices</a> (Only for 16 companies, data for all companies could be provided on request).</li>
+</ul>
+</td></tr>
+
 <tr><td><hr></td><td><hr></td></tr>
 
 <tr><td>2017 11 06</td>
