@@ -1,0 +1,36 @@
+<html>
+<head><title>Results of predicting in Lyft</title></head>
+
+<body>
+<ul>
+<li>
+<h2>2019 12 13</h2>
+Model: 
+<pre>
+inputs = Input(shape=input_shape)
+X = Conv2D(64, (3, 3), activation='relu', padding='same')(inputs)
+X = MaxPooling2D(pool_size=(4, 4), padding='same')(X)
+X = Dropout(0.25)(X)
+#Now split into two, one for O_C and other for B_C
+O_C = Conv2DTranspose(10, (3,3), 
+            activation='softmax', 
+            strides=(4,4), padding='same',
+            name="Output_Channels")(X)
+B_C = Conv2DTranspose(24, (3,3), 
+            activation='tanh', 
+            strides=(4,4), padding='same',
+            name="Box_Corners")(X)
+model = Model(
+            inputs=inputs,
+            outputs=[O_C, B_C],
+            name="Lyft")
+</pre>
+Data: Training data set splitted into 80 and 20 ratio.<br>
+Confusion matrix obtained after 1 epoch:
+<img src='conf_matrix.png'/>
+</li>
+
+
+</ul>
+</body>
+</html>
