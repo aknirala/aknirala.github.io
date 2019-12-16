@@ -28,8 +28,36 @@ model = Model(
 Data: Training data set splitted into 80 and 20 ratio.<br>
 Confusion matrix obtained after 1 epoch:
 <img src='conf_matrix.png'/>
+Overall accuracy: 0.533
 </li>
 
+<li>
+<h2>2019 12 15</h2>
+After 7 epochs of training on the same model we get:
+<pre>
+
+[
+bkgd	[436241909   6344587     73677       136   1024084    433239      4042     514770       601     66136]
+car	[203324356   3824626     24346        52    458176    199459      2096     163875       109     34236]
+pedest'	[        0         0         0         0         0         0         0          0         0         0]
+animal	[        0         0         0         0         0         0         0          0         0         0]
+other v	[   204534     53686         0         0    136099     31197         0      23625         0        21]
+bus	[       73         6         0         0         0         0         0          0         0         0]
+mot cyc	[        0         0         0         0         0         0         0          0         0         0]
+truck	[      130        26         0         0         0         3         0         87         0         0]
+emer v	[        0         0         0         0         0         0         0          0         0         0]
+bicyc	[        1         0         0         0         0         0         0          0         0         0]]
+Sum	639771003   10222925     98023       188   1618359    663895      6138     702357       710    100393
+Acc:         0.682     0.374                        0.0841
+Overall accuracy: 440202721/653183991 = 0.674
+</pre>
+Observations:
+<ul>
+<li>We divided the data again randomly, so sum of points is not exactly same.</li>
+<li>Overall accuracy has considerably improved. It considerabely imrpved for background, and a bit for car. It has decreased for other veichles. Now, it has also correctly classified few points as truck.</li>
+<li>Now, we would try with a bit complicated model, and hope that accuracuy will improve further</li>
+</ul>
+</li>
 
 </ul>
 </body>
