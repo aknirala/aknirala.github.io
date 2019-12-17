@@ -26,7 +26,7 @@ model = Model(
             name="Lyft")
 </pre>
 Data: Training data set splitted into 80 and 20 ratio.<br>
-Confusion matrix obtained after 1 epoch:
+Confusion matrix obtained after 1 epoch:<br>
 <img src='conf_matrix.png'/>
 Overall accuracy: 0.533
 </li>
@@ -56,6 +56,59 @@ Observations:
 <li>We divided the data again randomly, so sum of points is not exactly same.</li>
 <li>Overall accuracy has considerably improved. It considerabely imrpved for background, and a bit for car. It has decreased for other veichles. Now, it has also correctly classified few points as truck.</li>
 <li>Now, we would try with a bit complicated model, and hope that accuracuy will improve further</li>
+</ul>
+</li>
+
+<li>
+<h2>2019 12 16</h2>
+Result of applying a bit complex model (with dense layer), on just one scene for just one epoch (Run time was around 1.6 hours). The model will be run on entire data, however results are expected only after few (4-6) days.<br>
+Model:
+<pre>
+inputs = Input(shape=input_shape)
+X = Conv2D(cnn1, (3, 3), activation='relu', padding='same')(inputs)
+X = MaxPooling2D(pool_size=(4, 4), padding='same')(X)
+X = Dropout(0.25)(X)
+X = Flatten()(X)
+X = Dense(1024, activation='relu')(X)
+X = Dense(int(WIDTH/4)* int(HEIGHT/4)* cnn1, activation='relu')(X)
+
+
+X = Reshape(target_shape = (int(WIDTH/4), int(HEIGHT/4), cnn1))(X)
+#Now split into two, one for O_C and other for B_C
+O_C = Conv2DTranspose(10, (3,3), 
+            activation='softmax', 
+            strides=(4,4), padding='same',
+            name="Output_Channels")(X)
+B_C = Conv2DTranspose(24, (3,3), 
+            activation='tanh', 
+            strides=(4,4), padding='same',
+            name="Box_Corners")(X)
+model = Model(
+            inputs=inputs,
+            outputs=[O_C, B_C],
+            name="Lyft")
+
+model.summary()
+</pre>
+
+<br>
+Result
+<pre>
+array([
+[ 458387,    9867,    1280,       0,     105,    3348,       0,           1618,       0,       0],
+[3138392,   71581,    2038,       0,     784,    8748,       0,           8453,       0,       0],
+[    862,     103,     117,       0,       0,      15,       0,             14,       0,       0],
+[    840,      54,       0,       0,       0,       3,       0,              0,       0,       0],
+[    682,      39,       0,       0,       0,       7,       0,              2,       0,       0],
+[   8153,     384,      52,       0,      11,     188,       0,             87,       0,       0],
+[    456,      35,      30,       0,       0,       3,       0,              2,       0,       0],
+[  21464,    1318,      63,       0,      14,     785,       0,           3106,       0,       0],
+[    217,      18,       0,       0,       0,      21,       0,              5,       0,       0],
+[    226,       7,      12,       0,       0,       4,       0,              0,       0,       0]])
+</pre>
+Observation:
+<ul>
+<li>While majority of points are being misclassified as car, it is classifying many points correctly to correct class. With more training, it seems it'll give better results.</li>
 </ul>
 </li>
 
