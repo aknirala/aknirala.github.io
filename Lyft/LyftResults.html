@@ -112,6 +112,32 @@ Observation:
 </ul>
 </li>
 
+<li>
+<h2>2019 12 18</h2>
+With the above model, trained on 80% of training data and tested on 20%, after 1 epoch:
+<pre>
+ Confusion matrix after 1 iteration[
+bkgd	 [606409082   6486312     92875       206    992647    411090      4361     548490      2137    107757]
+car	 [ 31560664   3379955      4597        19    251611    104744      1922     151846      1519      1719]
+pedest'	 [        0         0         0         0         0         0         0          0         0         0]
+animal	 [        0         0         0         0         0         0         0          0         0         0]
+other v	 [  2003295    169187       375         0    418679     56115         7      22789         0         0]
+bus	 [        0         0         0         0         0         0         0          0         0         0]
+mot cyc	 [        0         0         0         0         0         0         0          0         0         0]
+truck	 [        0         0         0         0         0         0         0          0         0         0]
+emer v	 [        0         0         0         0         0         0         0          0         0         0]
+bicyc	 [        0         0         0         0         0         0         0          0         0         0]]
+SUM	639973041    10035454     97847       225   1662937    571949      6290     723125      3656     109476
+ACC           0.948     0.337                         0.252
+</pre>
+
+Observation:
+<ul>
+<li>While car accuracy has decreased, overall accuracy has increased a lot, as background points are ,ostly correctly classified.</li>
+<li>After 1 iteration, model still only predicts three classes, but accuracy for other veichles have also increased considerabely.</li>
+<li>With more iterations (in 3-4 days), accuracy for all classes should improve.</li>
+</ul>
+</li>
 </ul>
 </body>
 </html>
