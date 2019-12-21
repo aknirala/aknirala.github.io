@@ -138,6 +138,31 @@ Observation:
 <li>With more iterations (in 3-4 days), accuracy for all classes should improve.</li>
 </ul>
 </li>
+
+<li><h2>2019 12 20</h2>
+With the above model, trained on 80% of training data and tested on 20%, after 6 epochs:
+<pre>
+[[604015004   6165589     92847       142    900914    427007      4745     477617      1367     98796]
+ [ 33933531   3822991      4888        10    201357     83804      1774     177256       686      2417]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [  1817010    102886       331         1    593138     99793        16      27099         0       134]
+ [    76209       909       332         0       709     33613         0       4352         0      2973]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [     7721       260         7         0         0      1467         0          0         0      2298]
+]
+SUM: 
+639849475   10092635      98405     152      1696118   645684     6535     686324     2053     106618
+Acc: 
+0.944           0.379                          0.350   0.052                                     0.022
+</pre>
+Observations:
+<ul>
+<li>Clearly objects from other classes are being detected too. In fact, now we have objects from 5 classes.</li>
+<li>This suggests that if more layesr are added, accuracy might as well, improve further.</li>
+</ul>
 </ul>
 </body>
 </html>
