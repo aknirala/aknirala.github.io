@@ -162,7 +162,33 @@ Observations:
 <ul>
 <li>Clearly objects from other classes are being detected too. In fact, now we have objects from 5 classes.</li>
 <li>This suggests that if more layesr are added, accuracy might as well, improve further.</li>
+</ul></li>
+
+<li>
+<h2>2019 12 22</h2>
+With the above model, trained on 80% of training data and tested on 20%, after 11 epochs:
+<pre>
+[[611586606   6378275     92324       142    903389    446143      5052     494651      1622     97370]
+ [ 26439806   3632208      5623        11    153986     63483      1481     161160       431      3130]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [  1736044     81206       135         0    637816     98710         2      24567         0       101]
+ [    79930       724        67         0       927     36043         0       5932         0      2998]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [        0         0         0         0         0         0         0          0         0         0]
+ [     7089       222       256         0         0      1305         0         14         0      3019]]
+SUM:
+639849475    10092635     98405       153   1696118    645684      6533     686324      2053    106618
+Acc:
+     0.956      0.360                         0.376     0.056                                     0.028
+</pre>
+<ul>
+<li>Overall accuracy has imrpoved.</li>
+<li>Many classes are still not classified.</li>
+<li>This calls for a bit more complex model and more training. Now, we'll predict the bounding boxes.</li>
 </ul>
+</li>
 </ul>
 </body>
 </html>
