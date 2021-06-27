@@ -1,29 +1,55 @@
 <html>
 <head><title>Search</title>
+
+<style>
+
+.searchResult table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.searchResult th, .searchResult td {
+    text-align: left;
+    padding: 8px;
+}
+
+.searchResult tr:nth-child(even){background-color: #E1ECF8}
+
+.searchResult th {
+    background-color: #1199ee;
+    color: white;
+}
+
+</style>
+<script>
+//Not to be changed.
+</script>
+
+
 </head>
 <body>
 <div id = 'BRAINblueHeader'>
- <table style="width:100%">
+ <table  style="width:100%">
    <tr>
-     <td width = 10%></td>
-     <td width = 80%><div style = "background-color: #0088ee; height:100px;">&nbsp;</div></td>
-     <td width = 10%></td>
+     <td colspan=2 width=100%><div style = "background-color: #0088ee; height:100px;">&nbsp;</div></td>
    </tr>
  </table>
 </div>
-<div>
+
+
  <table style="width:100%">
    <tr>
-     <td width = 10%></td>
      <td width = 80%>
      <div id ='brainExtSearchDivToReplace'>
   <center><h2>Please install this <a href='https://chrome.google.com/webstore/detail/annotate-the-web-context/emajnoacacifjgmkkmheackniabamonm'>awesome extension</a> to access its search via this page!</h2></center>
-</div></td>
-     <td width = 10%></td>
+</div>
+    <br>
+    <div id = 'SearchRes'></div>
+    </td>
+    <td width = 20%><div id='sourceOfIncome'>
+        
+    </td>
    </tr>
  </table>
-</div>
-<br>
-<div id = 'SearchRes'></div>
 <body>
 </html>
