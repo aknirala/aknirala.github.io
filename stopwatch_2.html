@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        #motiv {
+            font-size: 4em;
+            color: red;
+            margin-bottom: 20px;
+        }
+        #displayt {
+            font-size: 8em;
+            color: blue;
+            margin-bottom: 20px;
+        }
+        #display {
+            font-size: 8em;
+            color: blue;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="motiv"><center><b>For the countless Possibilities<br>becoming LIMITLESS...</b></center></div>
+    <div id="displayt">00:00</div>
+    <div id="display">00:00:00</div>
+    <button id="startPauseBtn">Start</button>
+    <button id="resetBtn">Reset</button>
+    <button id="toggleSecBtn">Sec</button>
+
+    <script>
+        let startPauseBtn = document.getElementById("startPauseBtn");
+        let resetBtn = document.getElementById("resetBtn");
+        let toggleSecBtn = document.getElementById("toggleSecBtn");
+        let displayt = document.getElementById("displayt");
+        let display = document.getElementById("display");
+
+        let startTime = 0;
+        let elapsedTime = 0;
+        let isRunning = false;
+        let showSeconds = true;
+        let timerUpdate;
+
+        function updateDisplay() {
+            let now = new Date().getTime();
+            let timeDiff = elapsedTime;
+            if (isRunning) {
+                timeDiff += now - startTime;
+            }
+
+            let totalSeconds = Math.floor(timeDiff / 1000);
+            let hours = Math.floor(totalSeconds / 3600);
+            let minutes = Math.floor((totalSeconds % 3600) / 60);
+            let seconds = totalSeconds % 60;
+
+            let hourText = hours < 10 ? "0" + hours : hours;
+            let minuteText = minutes < 10 ? "0" + minutes : minutes;
+            let secondText = seconds < 10 ? "0" + seconds : seconds;
+            let dateObj = new Date(now)
+            displayt.textContent = `${dateObj.getHours()}:${dateObj.getMinutes()}`;
+            display.textContent = `${hourText}:${minuteText}${showSeconds ? ":" + secondText : ""}`;
+        }
+
+        function startPauseTimer() {
+            if (isRunning) {
+                // Pausing the timer
+                elapsedTime += new Date().getTime() - startTime;
+                clearInterval(timerUpdate);
+                startPauseBtn.textContent = "Start";
+            } else {
+                // Resuming the timer
+                startTime = new Date().getTime();
+                timerUpdate = setInterval(updateDisplay, 1000); // Update every second for display
+                startPauseBtn.textContent = "Pause";
+            }
+            isRunning = !isRunning;
+        }
+
+        function resetTimer() {
+            clearInterval(timerUpdate);
+            isRunning = false;
+            startTime = 0;
+            elapsedTime = 0;
+            updateDisplay();
+            startPauseBtn.textContent = "Start";
+        }
+
+        function toggleSeconds() {
+            showSeconds = !showSeconds;
+            updateDisplay();
+        }
+
+        startPauseBtn.addEventListener("click", startPauseTimer);
+        resetBtn.addEventListener("click", resetTimer);
+        toggleSecBtn.addEventListener("click", toggleSeconds);
+
+        updateDisplay();  // Initialize display
+    </script>
+</body>
+</html>
+
